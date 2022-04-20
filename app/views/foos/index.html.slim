@@ -1,0 +1,33 @@
+p#notice
+  = notice
+h1
+  | Foos
+table
+  thead
+    tr
+      th
+        | Bar
+      th[colspan="3"]
+  tbody
+    - @foos.each do |foo|
+      tr
+        td
+          = foo.bar
+        td
+          = link_to 'Show', foo
+        td
+          = link_to 'Edit', edit_foo_path(foo)
+        td
+          = link_to 'Destroy', foo, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Foo', new_foo_path
+br
+= button_tag('click me', data: { reflex: 'click->Example#count'})
+br
+= request.path
+br
+= request.url
+br
+= request.inspect
+#selector
+  = render(partial: 'foos/pagy')
